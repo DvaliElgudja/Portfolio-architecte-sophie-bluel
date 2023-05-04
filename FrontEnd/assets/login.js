@@ -16,7 +16,7 @@ loginForm.addEventListener('submit', async function(e){
     // Convert the data into JSON
     const formJSON = JSON.stringify(loginData)
 
-    const response = await fetch('http://localhost:5678/api/users/login', {
+    const response = await fetch('http://localhost:5678/api-docs/#/default/post_users_login', {
         method: "POST",
         headers: { 
             "Accept": "application/json",
