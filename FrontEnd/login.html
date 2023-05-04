@@ -16,12 +16,15 @@
         <nav>
             <ul>
                 <a href="index.html"><li>projets</li></a>
-                <li>contact</li>
+                <a href="index.html#contact"><li>contact</li></a>
                 <a href="login.html"><li>login</li></a>
+                <button id="bttn">button</button>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
     </header>
+
+    
 
     <footer>
         <nav>
@@ -29,7 +32,25 @@
                 <li>Mentions Légales</li>
             </ul>
         </nav>
+        
     </footer>
+    <script>
+        function beso(){
+            const params = new URLSearchParams({
+                email: 'sophie.bluel@test.tld',
+                password: 'S0phie'
+            })
+            const url = `http://localhost:5678/api/users/login?${params}`;
+            
+            fetch(url).then(response => {
+                console.log('besoidinaxui',response);
+            })
+        }
+        window.onload = function(){
+            const bttn = document.getElementById('bttn');
+            bttn.addEventListener('click',beso);
+        }
+    </script>
     </body>
     </html>
     
