@@ -45,23 +45,8 @@
         </nav>
         
     </footer>
-    <script>
-        function beso(){
-            const params = new URLSearchParams({
-                email: 'sophie.bluel@test.tld',
-                password: 'S0phie'
-            })
-            const url = `http://localhost:5678/api/users/login?${params}`;
-            
-            fetch(url).then(response => {
-                console.log('besoidinaxui',response);
-            })
-        }
-        window.onload = function(){
-            const bttn = document.getElementById('bttn');
-            bttn.addEventListener('click',beso);
-        }
-    </script>
+    <script src="./assets/login.js"></script>
+
     </body>
     </html>
     
