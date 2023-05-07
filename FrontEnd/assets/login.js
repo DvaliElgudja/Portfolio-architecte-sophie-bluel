@@ -16,8 +16,8 @@ loginForm.addEventListener('submit', async function(e){
     // Convert the data into JSON
     const formJSON = JSON.stringify(loginData)
 
-    const response = await fetch('http://localhost:5678/api/users/login', {
-        method: "POST",
+    const response = await fetch ('http://localhost:5678/api/users/login', {
+        method: "POST", 
         headers: { 
             "Accept": "application/json",
             "Content-Type": "application/json"
@@ -31,7 +31,7 @@ loginForm.addEventListener('submit', async function(e){
         localStorage.setItem('token', tokenId);
         window.location.href = 'index.html'
     } else {
-        alert("Erreur dans l'identifiant ou le mot de passe")
+        alert("Erreur dans l'identifiant ou le mot de passe!")
     }
 
 })
