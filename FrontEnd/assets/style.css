@@ -61,6 +61,63 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+
+.flex_j_c {
+	display: flex;
+	justify-content: center;
+  }
+
+.flex_center {
+	display: flex;
+	align-items: center;
+  }
+.flexBetween {
+	display: flex;
+	justify-content: space-between;
+  }
+
+  .textCenter {
+	text-align: center;
+  }
+
+  .div_edit{
+  background-color: black;
+  padding: 5px 0px;
+  width: 1140px;
+  position: relative;
+  margin: auto;
+  top: 0;
+  z-index: 11;
+  }
+
+  .display_none{
+	display: none;
+  }
+
+  .color_white{
+	color: white;
+  }
+
+  .font_edit{
+	font-size: 14px;
+	margin: 10px 20px 10px 0px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
 	max-width: 1140px;
 	margin:auto;
