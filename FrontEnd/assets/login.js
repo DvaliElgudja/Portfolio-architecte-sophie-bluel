@@ -34,4 +34,4 @@ loginForm.addEventListener('submit', async function(e){
         alert("Erreur dans l'identifiant ou le mot de passe!")
     }
 
-})
+});
