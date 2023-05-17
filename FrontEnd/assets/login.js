@@ -1,37 +1,42 @@
-// Access to API /login with POST method
+// **************** GESTION DE CONNECTION *************//
 
-// Define main variables
-const loginForm = document.getElementById('login-form')
-const userMail = document.getElementById('user-email')
-const userPassword = document.getElementById('user-password')
+// Ici j'ai développé un système de gestion de connexion. Les utilisateurs peuvent se connecter
+// avec leur e-mail et mot de passe. Le code interagit avec l'API du serveur pour vérifier
+// les informations d'identification et gérer les erreurs. En cas de succès, l'utilisateur est redirigé
+// vers la page d'accueil et un token d'authentification est stocké, et en cas d'erreur un message
+// indiquant la cause est affiché.
 
-loginForm.addEventListener('submit', async function(e){
-    e.preventDefault()
+const form = document.querySelector("#form");
+const errorMessage = document.querySelector("#error-message");
 
-    const loginData = {
-        email: userMail.value,
-        password: userPassword.value
-    }
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = form.email.value;
+  const password = form.password.value;
 
-    // Convert the data into JSON
-    const formJSON = JSON.stringify(loginData)
-
-    const response = await fetch ('http://localhost:5678/api/users/login', {
-        method: "POST", 
-        headers: { 
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: formJSON
+  fetch("http://localhost:5678/api/users/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else if (response.status === 404) {
+        throw new Error("Nom d'utilisateur ou mot de passe incorrect.");
+      } else {
+        throw new Error("Une erreur s'est produite lors de la connexion.");
+      }
     })
-    const data = await response.json()
-    const tokenId = data.token
-
-    if (response.ok === true){
-        localStorage.setItem('token', tokenId);
-        window.location.href = 'index.html'
-    } else {
-        alert("Erreur dans l'identifiant ou le mot de passe!")
-    }
-
+    .then((data) => {
+      if (data.token) {
+        localStorage.setItem("authToken", data.token);
+        window.location.href = "index.html";
+      }
+    })
+    .catch((error) => {
+      errorMessage.innerText = error.message;
+    });
 });
