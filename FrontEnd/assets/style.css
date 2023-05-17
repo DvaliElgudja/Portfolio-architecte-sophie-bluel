@@ -681,3 +681,56 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em 0px 2em 2em;
 }
+
+
+/* ____________________________________________ */
+
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 576px) { 
+  /* Add your styles for small devices here */
+  body {
+    max-width: 100%;
+  }
+  
+  #introduction, #contact, #login, #blocFilter {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-wrapper, .modal-addPhoto {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+
+}
+
+/* Medium devices (tablets, less than 768px) */
+@media (max-width: 768px) { 
+  /* Add your styles for medium devices here */
+  body {
+    max-width: 100%;
+  }
+  
+  #introduction, #contact, #login, #blocFilter {
+    width: 95%;
+    margin: 30px auto;
+  }
+  
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .modal-wrapper, .modal-addPhoto {
+    width: 95%;
+    height: auto;
+    padding: 30px;
+  }
+
+ 
+}
