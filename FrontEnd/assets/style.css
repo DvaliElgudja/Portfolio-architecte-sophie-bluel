@@ -147,7 +147,7 @@ table {
 /** end reset css**/
 
 /***** ToolBox ****/
-.W40028px {
+.W-S {
   font-weight: 400;
   font-size: 28px;
 }
@@ -517,7 +517,7 @@ select {
   margin-right: 15px;
 }
 
-.marginLeft51 {
+.marginLeft {
   margin-left: 51px;
 }
 

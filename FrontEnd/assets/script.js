@@ -419,3 +419,9 @@ buttonValidate.addEventListener("click", (event) => {
 buttonAddPhoto.addEventListener("click", () => {
   input.click();
 });
+
+
+
+
+// _________________________________
+
