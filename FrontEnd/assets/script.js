@@ -344,9 +344,19 @@ input.addEventListener("change", () => {
         ? "#1D6154"
         : "";
   }
-
+  
+  function validateInput() {
+    if (titleInput.value.trim() === "" || categorySelect.value === "default") {
+      alert("Erreur: Vous devez remplir le titre et sélectionner une catégorie.");
+      return false; // empêche le formulaire d'être soumis
+    }
+  }
+  
   titleInput.addEventListener("input", enableValidateButton);
   categorySelect.addEventListener("input", enableValidateButton);
+  
+  buttonValidate.addEventListener("click", validateInput);
+  
 
   // On affiche l'image sélectionné et retire le logo et boutton de recherche d'ajout de fichier.
 

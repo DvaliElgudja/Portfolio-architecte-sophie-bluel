@@ -9,6 +9,7 @@
 const form = document.querySelector("#form");
 const errorMessage = document.querySelector("#error-message");
 
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = form.email.value;
