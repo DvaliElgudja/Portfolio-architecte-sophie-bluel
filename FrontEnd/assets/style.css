@@ -681,7 +681,42 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em 0px 2em 2em;
 }
+/* ici est  le logo de deplacement */
+.invisible {
+  display: none;
+}
 
+.img-container:hover .move-icon-container {
+  background-color: black;
+}
+
+.move-icon-container {
+  position: absolute;
+  top: 5px;
+  right: 23px;
+  background-color: transparent;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  text-align: center;
+}
+
+
+
+
+
+.fa-solid.fa-arrows-alt {
+  color: white;
+  font-size: 9px;
+}
+
+
+/* ici c est pour que l'image ne s'ecrase pas */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 
 /* ____________________________________________ */
 
@@ -710,27 +745,93 @@ footer nav ul {
 
 }
 
-/* Medium devices (tablets, less than 768px) */
-@media (max-width: 768px) { 
- 
+
+@media (max-width: 1200px) {
+
   body {
     max-width: 100%;
   }
-  
+
+  .editorDiv {
+    width: 100%;
+    padding: 5px 15px;
+  }
+
+  .fontButtonEditor {
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+
+  .fontEditor {
+    font-size: 12px;
+  }
+
+  #portfolio h2 + .fontEditor {
+    right: 25px;
+    top: 0;
+  }
+
   #introduction, #contact, #login, #blocFilter {
     width: 95%;
     margin: 30px auto;
   }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .modal-wrapper, .modal-addPhoto {
+    width: 90%;
+    height: auto;
+    padding: 30px;
+  }
+
   
+
+}
+
+
+
+
+/* Medium devices (tablets, less than 768px) */
+@media (max-width: 768px) { 
+
+  body {
+    max-width: 100%;
+  }
+
+  .editorDiv {
+    width: 100%;
+    padding: 5px 15px;
+  }
+
+  .fontButtonEditor {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+
+  .fontEditor {
+    font-size: 10px;
+  }
+
+  #portfolio h2 + .fontEditor {
+    right: 20px;
+    top: 0;
+  }
+
+  #introduction, #contact, #login, #blocFilter {
+    width: 95%;
+    margin: 30px auto;
+  }
+
   .gallery {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .modal-wrapper, .modal-addPhoto {
     width: 95%;
     height: auto;
     padding: 30px;
   }
 
- 
 }

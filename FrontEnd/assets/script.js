@@ -188,36 +188,97 @@ document.querySelectorAll(".editorModeP").forEach((link) => {
     modalWrapper.style.display = "block";
     modalAddPhoto.style.display = "none";
 
-    allProjects.forEach((image) => {
-      const imgContainer = document.createElement("div");
-      imgContainer.classList.add("img-container");
-      imgContainer.setAttribute("data-id", image.id);
-      const img = document.createElement("img");
-      img.src = image.imageUrl;
-      img.alt = "";
-      imgContainer.appendChild(img);
-      const divTrash = document.createElement("div");
-      divTrash.setAttribute("class", "trash-icon-container");
+    // allProjects.forEach((image) => {
+    //   const imgContainer = document.createElement("div");
+    //   imgContainer.classList.add("img-container");
+    //   imgContainer.setAttribute("data-id", image.id);
+    //   const img = document.createElement("img");
+    //   img.src = image.imageUrl;
+    //   img.alt = "";
+    //   imgContainer.appendChild(img);
+    //   const divTrash = document.createElement("div");
+    //   divTrash.setAttribute("class", "trash-icon-container");
 
-      const icon = document.createElement("i");
-      icon.setAttribute("class", "fa-solid fa-trash-can");
-      divTrash.appendChild(icon);
-      imgContainer.appendChild(divTrash);
+    //   const icon = document.createElement("i");
+    //   icon.setAttribute("class", "fa-solid fa-trash-can");
+    //   divTrash.appendChild(icon);
+    //   imgContainer.appendChild(divTrash);
 
-      divTrash.addEventListener("click", function (Event) {
-        const confirmDelete = window.confirm(
-          "Êtes-vous sûr de vouloir supprimer cette image ?"
-        );
-        if (confirmDelete) {
-          deleteItem(image.id);
-        }
-      });
+    //   divTrash.addEventListener("click", function (Event) {
+    //     const confirmDelete = window.confirm(
+    //       "Êtes-vous sûr de vouloir supprimer cette image ?"
+    //     );
+    //     if (confirmDelete) {
+    //       deleteItem(image.id);
+    //     }
+    //   });
 
-      const text = document.createElement("p");
-      text.textContent = "éditer";
-      imgContainer.appendChild(text);
-      galleryModalContent.appendChild(imgContainer);
+    //   const text = document.createElement("p");
+    //   text.textContent = "éditer";
+    //   imgContainer.appendChild(text);
+    //   galleryModalContent.appendChild(imgContainer);
+// ________________________________________________________________________________
 
+allProjects.forEach((image) => {
+  const imgContainer = document.createElement("div");
+  imgContainer.classList.add("img-container");
+  imgContainer.setAttribute("data-id", image.id);
+
+  const img = document.createElement("img");
+  img.src = image.imageUrl;
+  img.alt = "";
+  imgContainer.appendChild(img);
+
+  const divIcons = document.createElement("div");
+  divIcons.setAttribute("class", "icons-container");
+  imgContainer.appendChild(divIcons);
+
+  const divTrash = document.createElement("div");
+  divTrash.setAttribute("class", "trash-icon-container");
+  const iconTrash = document.createElement("i");
+  iconTrash.setAttribute("class", "fa-solid fa-trash-can");
+  divTrash.appendChild(iconTrash);
+  divIcons.appendChild(divTrash);
+
+  divTrash.addEventListener("click", function (Event) {
+    const confirmDelete = window.confirm(
+      "Êtes-vous sûr de vouloir supprimer cette image ?"
+    );
+    if (confirmDelete) {
+      deleteItem(image.id);
+    }
+  });
+
+  const divMove = document.createElement("div");
+  divMove.setAttribute("class", "move-icon-container");
+  const iconMove = document.createElement("i");
+  iconMove.setAttribute("class", "fa-solid fa-arrows-alt invisible");
+  divMove.appendChild(iconMove);
+  divIcons.appendChild(divMove);
+
+  divMove.addEventListener("click", function (Event) {
+    // code à implémenter pour déplacer l'image
+    // cette partie peut être compliquée et dépend de la manière dont vous voulez implémenter cette fonctionnalité
+    console.log('Move functionality to be implemented');
+  });
+
+  const text = document.createElement("p");
+  text.textContent = "éditer";
+  imgContainer.appendChild(text);
+  galleryModalContent.appendChild(imgContainer);
+
+  imgContainer.addEventListener('mouseover', function() {
+    iconMove.classList.remove('invisible');
+  });
+
+  imgContainer.addEventListener('mouseout', function() {
+    iconMove.classList.add('invisible');
+  });
+
+
+
+
+// ____________________________________________________________________________
       const arrowLeftIcon = document.querySelector(".fa-arrow-left");
       arrowLeftIcon.addEventListener("click", () => {
         modalWrapper.style.display = "block";
@@ -227,6 +288,8 @@ document.querySelectorAll(".editorModeP").forEach((link) => {
     galleryModal.style.display = "flex";
   });
 });
+
+
 
 // On ajoute un événements au "click" qui ferme le modal quand on click à l'extérieur de celle-ci.
 
